@@ -17,6 +17,7 @@
 		<java.version>17</java.version>
 		<hutool.version>5.8.4</hutool.version>
 		<pi4j.version>1.3</pi4j.version>
+		<jodd.version>5.1.0</jodd.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,10 +41,16 @@
 			<artifactId>hutool-all</artifactId>
 			<version>${hutool.version}</version>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.jodd</groupId>-->
+<!--			<artifactId>jodd-all</artifactId>-->
+<!--			<version>${jodd.version}</version>-->
+<!--		</dependency>-->
 
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -77,6 +84,20 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<forceJavacCompilerUse>true</forceJavacCompilerUse>
+					<fork>true</fork>
+					<source>16</source>
+					<target>16</target>
+					<showWarnings>true</showWarnings>
+					<encoding>UTF8</encoding>
+					<compilerVersion>${java.version}</compilerVersion>
 				</configuration>
 			</plugin>
 		</plugins>
